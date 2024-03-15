@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch bitghetti",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/bitghetti.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "externalConsole": false
+        }
+    ]
+}
