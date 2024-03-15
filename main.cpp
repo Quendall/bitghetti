@@ -1,5 +1,6 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <cstdlib>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
@@ -25,14 +26,14 @@ int main()
     if (window == NULL)
     {
         glfwTerminate();
-        return -1;
+        return EXIT_FAILURE;
     }
     glfwMakeContextCurrent(window);
 
     // Initialize GLAD
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
-        return -1;
+        return EXIT_FAILURE;
     }
 
     // Set the viewport size and register the framebuffer size callback
