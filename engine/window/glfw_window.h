@@ -14,5 +14,6 @@ class glfw_window : public context_window {
     void terminate();
     void update();
     void process_input();
+    std::tuple<double, double> get_cursor_pos();
     bool is_open() const;
 };

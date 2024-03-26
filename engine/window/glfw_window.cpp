@@ -43,4 +43,10 @@ void glfw_window::process_input() {
         glfwSetWindowShouldClose(window, true);
 }
 
+std::tuple<double, double> glfw_window::get_cursor_pos() {
+    double xpos, ypos;
+    glfwGetCursorPos(window, &xpos, &ypos);
+    return {xpos, ypos};
+}
+
 bool glfw_window::is_open() const { return !glfwWindowShouldClose(window); }
