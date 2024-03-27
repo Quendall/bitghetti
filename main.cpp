@@ -52,6 +52,7 @@ int main() {
             pframes = frames;
             frames = 0;
         }
+        
         // Print FPS and Cursor Pos
         // auto [xpos, ypos] = window->get_cursor_pos();
         // std::cout << "\r" << std::setfill(' ') << std::setw(10) << std::left

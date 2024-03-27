@@ -3,6 +3,7 @@ project(bitghetti)
 
 # libs
 add_subdirectory(libs/glfw)
+add_subdirectory(libs/glm)
 
 add_library(glad libs/glad/src/glad.c)
 target_include_directories(glad PRIVATE libs/glad/include)
@@ -21,4 +22,4 @@ add_executable(${PROJECT_NAME} "main.cpp"
 target_include_directories(${PROJECT_NAME} PRIVATE libs/glad/include)
 
 # link libs
-target_link_libraries(${PROJECT_NAME} glad glfw)
+target_link_libraries(${PROJECT_NAME} PRIVATE glad glfw glm)
