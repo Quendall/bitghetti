@@ -17,12 +17,9 @@ glfw_window::glfw_window(int width, int height, const std::string& title) {
         glfwTerminate();
         exit(EXIT_FAILURE);
     }
-    glfwMakeContextCurrent(window);
 
-    // Initialize GLAD
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        exit(EXIT_FAILURE);
-    }
+    g_context = new opengl_context(window);
+    g_context->init();
 
     // Set the viewport size and register the framebuffer size callback
     int fb_width, fb_height;
@@ -34,13 +31,17 @@ glfw_window::glfw_window(int width, int height, const std::string& title) {
 void glfw_window::terminate() { glfwTerminate(); }
 
 void glfw_window::update() {
-    glfwSwapBuffers(window);
+    g_context->swap_buffers();
     glfwPollEvents();
 }
 
 void glfw_window::process_input() {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+}
+
+double glfw_window::get_time() {
+    return glfwGetTime();
 }
 
 std::tuple<double, double> glfw_window::get_cursor_pos() {

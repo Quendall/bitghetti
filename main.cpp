@@ -19,14 +19,14 @@ int main() {
     // Main rendering loop
     // -------------------
 
-    double prev_time = glfwGetTime(), fps_timer = prev_time;
+    double prev_time = window->get_time(), fps_timer = prev_time;
     double lag = 0.0;
     int frames = 0;
     int pframes = 0;
     // int updates = 0;
 
     while (window->is_open()) {
-        double curr_time = glfwGetTime();
+        double curr_time = window->get_time();
         double delta_time = curr_time - prev_time;
         prev_time = curr_time;
         lag += delta_time;
@@ -47,12 +47,12 @@ int main() {
         frames++;
 
         // Update FPS
-        if (glfwGetTime() - fps_timer > 1.0) {
+        if (window->get_time() - fps_timer > 1.0) {
             fps_timer += 1.0;
             pframes = frames;
             frames = 0;
         }
-        
+
         // Print FPS and Cursor Pos
         // auto [xpos, ypos] = window->get_cursor_pos();
         // std::cout << "\r" << std::setfill(' ') << std::setw(10) << std::left
