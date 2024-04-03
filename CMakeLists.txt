@@ -13,13 +13,18 @@ file(GLOB_RECURSE HEADERS "engine/*h")
 file(GLOB_RECURSE SOURCES "engine/*.cpp")
 
 # source files
-add_executable(${PROJECT_NAME} "main.cpp"
+add_executable(${PROJECT_NAME}
+    "main.cpp"
     ${HEADERS}
     ${SOURCES}
 )
 
 # include directories
-target_include_directories(${PROJECT_NAME} PRIVATE libs/glad/include)
+target_include_directories(${PROJECT_NAME} PRIVATE
+    libs/glad/include
+    libs/entt
+    engine/ecs
+)
 
 # link libs
 target_link_libraries(${PROJECT_NAME} PRIVATE glad glfw glm)
