@@ -11,4 +11,6 @@ class context_window {
     virtual double get_time() = 0;
     virtual std::tuple<double, double> get_cursor_pos() = 0;
     virtual bool is_open() const = 0;
+    virtual unsigned int get_width() const = 0;
+    virtual unsigned int get_height() const = 0;
 };
